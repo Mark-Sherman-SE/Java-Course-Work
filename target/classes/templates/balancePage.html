@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Balance</title>
+    <script th:inline="javascript">
+        var frontendData = [[${frontendData}]];
+    </script>
+</head>
+<body>
+<div id="balance"></div>
+<!--<script src="/js/main.js"></script>-->
+<script th:src="${isDevMode} ? 'http://localhost:8000/main.js' : '/js/main.js'"></script>
+
+</body>
+</html>
