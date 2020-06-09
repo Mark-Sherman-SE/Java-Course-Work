@@ -4,7 +4,6 @@ import main.entity.Balance;
 import main.exception.BalanceNotFoundException;
 import main.repository.BalanceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

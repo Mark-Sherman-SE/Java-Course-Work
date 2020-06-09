@@ -2,18 +2,13 @@ package main.security;
 
 import main.entity.User;
 import main.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.PrincipalExtractor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
 
 import java.time.LocalDateTime;
 
@@ -22,34 +17,8 @@ import java.time.LocalDateTime;
 @EnableOAuth2Sso
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
-//    @Autowired
-//    private JwtTokenProvider jwtTokenProvider;
-//
-//    @Bean
-//    @Override
-//    public AuthenticationManager authenticationManagerBean() throws Exception {
-//        return super.authenticationManagerBean();
-//    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        http.httpBasic().disable()
-//                .csrf().disable()
-//                .formLogin().disable()
-//                .sessionManagement()
-//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//                .and()
-//                .authorizeRequests()
-//                .antMatchers("/auth/signin").permitAll()
-//                .antMatchers("/", "/js/**").permitAll()
-//                .antMatchers("/home/article/**").permitAll()
-//                .antMatchers(HttpMethod.GET, "/home/balance/**", "/home/operation/**").hasAnyRole("ADMIN", "USER")
-//                .antMatchers(HttpMethod.POST, "/home/balance/addBalance", "/home/operation/addOperation").hasAnyRole("ADMIN", "USER")
-//                .antMatchers(HttpMethod.DELETE, "/home/balance/{id}", "/home/operation/{id}").hasAnyRole("ADMIN", "USER")
-//                .antMatchers(HttpMethod.PUT, "/home/article/{id}").hasAnyRole("ADMIN", "USER")
-//                .anyRequest().authenticated()
-//                .and()
-//                .apply(new JwtSecurityConfigurer(jwtTokenProvider));
         http
                 .antMatcher("/**")
                 .authorizeRequests()
@@ -79,12 +48,4 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
             return userRepository.save(user);
         };
     }
-
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication()
-//                .withUser("user").password("{noop}pwd").roles("USER")
-//                .and()
-//                .withUser("admin").password("{noop}apwd").roles("ADMIN");
-//    }
 }

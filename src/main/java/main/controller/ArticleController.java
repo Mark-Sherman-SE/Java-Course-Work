@@ -3,7 +3,6 @@ package main.controller;
 import main.entity.Article;
 import main.entity.Operation;
 import main.exception.ArticleNotFoundException;
-import main.repository.ArticleRepository;
 import main.repository.OperationRepository;
 import main.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController

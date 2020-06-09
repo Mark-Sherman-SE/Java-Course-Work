@@ -1,12 +1,10 @@
 package main.controller;
 
-import main.entity.Article;
 import main.entity.Balance;
 import main.entity.Operation;
 import main.exception.BalanceNotFoundException;
 import main.repository.OperationRepository;
 import main.service.BalanceService;
-import main.service.OperationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
